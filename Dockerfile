@@ -16,6 +16,9 @@ RUN set -e; \
                 git \
         ;
 
+# For exporting models to tensorflow-serving.
+RUN pip install tensorflow-serving-api
+
 
 # Maybe make one repo for jupyter notebooks, clone these model repos there and
 # serve them.
@@ -27,4 +30,5 @@ EXPOSE 8888
 CMD ["jupyter", "notebook", "--allow-root", "--notebook-dir=/text-classification", "--ip='*'", "--port=8888", "--no-browser"]
 
 # Run like:
+# docker build -t binary-text-classification .
 # docker run -it --name binary_classification -p 9999:8888 binary-text-classification

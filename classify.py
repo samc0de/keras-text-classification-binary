@@ -39,20 +39,21 @@ model.load_weights('model.h5')
 
 # This can be done in a lot better way.
 def shell():
-  while True:
-      evalSentence = raw_input('Input a sentence to be evaluated, or Enter to'
-                               'quit: ')
+    prompt = 'Input a sentence to be evaluated, or Enter to quit: '
+    while True:
+        evalSentence = raw_input(prompt)
+        prompt = ''
 
-      if len(evalSentence) == 0:
-          break
+        if len(evalSentence) == 0:
+            break
 
-      # format your input for the neural net
-      testArr = convert_text_to_index_array(evalSentence)
-      input = tokenizer.sequences_to_matrix([testArr], mode='binary')
-      # predict which bucket your input belongs in
-      pred = model.predict(input)
-      # and print it for the humons
-      print("%s sentiment; %f%% confidence" % (labels[np.argmax(pred)],
+        # format your input for the neural net
+        testArr = convert_text_to_index_array(evalSentence)
+        input = tokenizer.sequences_to_matrix([testArr], mode='binary')
+        # predict which bucket your input belongs in
+        pred = model.predict(input)
+        # and print it for the humons
+        print("%s sentiment; %f%% confidence" % (labels[np.argmax(pred)],
                                                pred[0][np.argmax(pred)] * 100))
 
 if __name__ == '__main__':
