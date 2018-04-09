@@ -3,3 +3,4 @@ keras
 tensorboard
 h5py
 jupyter
+notebook
