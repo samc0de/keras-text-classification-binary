@@ -34,14 +34,14 @@ def main():
 
   builder = saved_model_builder.SavedModelBuilder(export_path)
 
-  signature = predict_signature_def(inputs={'images': model.input},
-                                    outputs={'scores': model.output})
+  signature = predict_signature_def(inputs={'sentence': model.input},
+                                    outputs={'sentiment': model.output})
 
   with keras.backend.get_session() as sess:
       builder.add_meta_graph_and_variables(
           sess=sess, tags=[tag_constants.SERVING], signature_def_map={
               'predict': signature})
-      builder.save()
+      builder.save(as_text=True)
 
 if __name__ == '__main__':
   main()
