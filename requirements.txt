@@ -1,6 +1,6 @@
 tensorflow
 keras
 tensorboard
-h5py
+h5py>=2.8.0rc1
 jupyter
 notebook
