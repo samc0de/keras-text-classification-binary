@@ -10,7 +10,7 @@ from tensorflow.contrib.session_bundle import exporter
 import keras
 from keras.models import model_from_json
 
-export_path = 'models/tensorflow_serve/exported'
+export_path = 'models/tensorflow_serve/exported_as_pbtext'
 export_version = 0
 
 def main():
