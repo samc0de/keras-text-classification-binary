@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<!-- DO NOT SUBMIT: Fix Page Title. Missing tags? http://go/optional-html -->
+<title>Binary text classification</title>
+<style>
+.positive {color: green;}
+.negative {color: red;}
+</style>
+<body>
+  <form action={{ url_for('predict') }} method='post'>
+    <input type='text' name='test_str'/>
+    <input type='submit' value='Predict Sentiment'>
+  </form>
+  <h3>Input text: {{input_text}}</h3>
+  {% if sentiment=="positive" %}
+    <h3 class='positive'>Sentiment: {{sentiment}}</h3>
+  {% elif sentiment=="negative" %}
+    <h3 class='negative'>Sentiment: {{sentiment}}</h3>
+  {% else %}
+    <h3>Sentiment: {{sentiment}}</h3>
+  {% endif %}
+  <h3>Confidence: {{confidence}}</h3>
+</body>
