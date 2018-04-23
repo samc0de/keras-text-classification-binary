@@ -18,7 +18,7 @@ To run the server:
 
 Contents of /tmp/model:  
 `srinathsarma@srinathspad:~/my_projects/keras-text-classification-binary$ ls /tmp/model`  
-0001
+0001  
 `srinathsarma@srinathspad:~/my_projects/keras-text-classification-binary$ ls /tmp/model/0001/`  
 saved_model.pb  variables
 
